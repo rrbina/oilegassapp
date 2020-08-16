@@ -174,6 +174,37 @@ export class EmbarcacaoFormComponent implements OnInit {
     }
   }
 
+  checkIntervaloFolgaValid(): boolean {
+    var dtInicioFolga = new Date(this.formulario.controls.DataInicioFolga.value);
+    var dtFimFolga = new Date(this.formulario.controls.DataFimFolga.value);
+    var dtDesembarque = new Date(this.formulario.controls.DataDesembarque.value);
+    var dtEmbarque = new Date(this.formulario.controls.DataEmbarque.value);
+    
+    var folga = this.todasAsDatasNoPeriodo(dtInicioFolga,dtFimFolga);
+    var embarque = this.todasAsDatasNoPeriodo(dtEmbarque,dtDesembarque);
+    var interception = folga.filter(value => embarque.includes(value))
+    var temIntersecao = interception && interception.length>0;
+    if(temIntersecao){
+      alert('A datas de folga estão conflitando com as datas de embarcação.');
+    } 
+    return !temIntersecao;
+  }
+
+  somarUmDia(data: Date) {
+    data.setDate(data.getDate() + 1);
+    return data;
+}
+
+ todasAsDatasNoPeriodo(datainicio: Date, datatfim: Date) : string[] {
+    var ret = [];
+    var dataAtual = datainicio;
+    while (dataAtual <= datatfim) {
+        ret.push(dataAtual.getMonth() + '-' + dataAtual.getDay() + '-' + dataAtual.getFullYear());
+        dataAtual = this.somarUmDia(dataAtual);
+    }
+    return ret;
+}
+
   checkUserIdValid(): boolean {
     if(this.formulario.controls.UserId.status !== "VALID"){
       this.hasErrorUserId = true;
@@ -223,6 +254,9 @@ export class EmbarcacaoFormComponent implements OnInit {
       return;
 
     if(!this.checkDataFimFolgaValid())
+      return;
+
+    if(!this.checkIntervaloFolgaValid())
       return;
 
       this.embarcacoesService.VerifyUserId(this.mapEmbarcacao(),this,this.handleError,this.Create);
