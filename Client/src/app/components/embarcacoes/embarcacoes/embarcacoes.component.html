@@ -1,0 +1,83 @@
+ 
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Deseja realmente deletar a embarcação?</p>
+        <button type="button" class="btn btn-default" (click)="deletar();" >Sim</button>
+        <button type="button" class="btn btn-primary" (click)="modalRef.hide()" >Não</button>
+      </div>
+</ng-template>
+
+    <form style="margin-bottom: 10px!important;">
+        <div class="container bs-docs-section">                               
+            <div class="row">
+                <div class="col-sm">
+                <div class="form-group">
+                    <div class="field clearfix date-range-start date-wrapper">
+                        <div class="label">
+                        <label for="datepickerEmbarque">Data Embarque:</label>
+                        </div>
+                        <div class="input">
+                        <input type="date" name="experience-start" id="datepickerEmbarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+                        style="display: block;width:100%;" formControlName="DataEmbarque" value="formulario.controls.DataEmbarque.value">
+                        <small id="dataEmbarqueErrorField" [className]="!hasErrorDataEmbarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a data de embarque.</small>
+                        </div>
+                    
+                    </div>
+                </div>
+                </div>
+                <div class="col-sm">
+                <div class="form-group">
+                    <div class="field clearfix date-range-start date-wrapper">
+                        <div class="label">
+                        <label for="datepickerDesembarque">Data Desembarque:</label>
+                        </div>
+                        <div class="input">
+                        <input type="date" name="experience-end" id="datepickerDesembarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+                        style="display: block;width:100%;" formControlName="DataDesembarque" value="formulario.controls.DataDesembarque.value">
+                        <small id="dataDesembarqueErrorField" [className]="!hasErrorDataDesembarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a data de desembarque com uma data após a do embarque.</small>
+                        </div>           
+                    </div>
+                    </div> 
+                </div>
+                <div class="col-sm">
+                <label style='display:block;' >&nbsp;</label>
+                <button style='display:block;width:100%;' class="btn btn-primary" (click)='filtrar();' >Filtrar</button>
+                </div>
+                <div class="col-sm">
+                <label style='display:block;' >&nbsp;</label>
+                <button style='display:block;width:100%;' class="btn btn-primary" (click)='estatistica();'>Gerar Estatística</button>
+                </div>
+            </div>
+        </div>        
+    </form>
+    
+<table style="margin-top: 5px;" class="container bs-docs-section table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Id do Usuário</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Empresa</th>        
+        <th scope="col">Data Embarque</th>
+        <th scope="col">Data Desembarque</th>
+        <th scope="col">Início Folga</th>
+        <th scope="col">Fim Folga</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let embarcacao of embarcacoes">
+            <th scope="row">{{embarcacao.usuario.id}}</th>
+            <th scope="row">{{embarcacao.usuario.name}}</th>
+            <th scope="row">{{embarcacao.usuario.empresa}}</th>            
+            <th scope="row">{{embarcacao.formatDate(embarcacao.dataEmbarque)}}</th>
+            <th scope="row">{{embarcacao.formatDate(embarcacao.dataDesembarque)}}</th>
+            <th scope="row">{{embarcacao.formatDate(embarcacao.dataInicioFolga)}}</th>
+            <th scope="row">{{embarcacao.formatDate(embarcacao.dataFimFolga)}}</th>
+            <td><i style='cursor: pointer;' class="fa fa-pencil" aria-hidden="true" routerLink="/embarcacao-form" [queryParams] ="{id: embarcacao.id}"></i></td>
+            <td><i style='cursor: pointer;' class="fa fa-trash-o" aria-hidden="true" (click)="openModal(template,embarcacao)"></i></td>
+        </tr>                                                        
+    </tbody>    
+</table> 
+<button type="button" routerLink="/embarcacao-form" 
+    class="container btn btn-primary btn-lg btn-block">Adicionar</button>

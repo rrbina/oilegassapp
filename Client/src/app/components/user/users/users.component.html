@@ -1,0 +1,33 @@
+ 
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Deseja realmente deletar o usuário?</p>
+        <button type="button" class="btn btn-default" (click)="deletar();" >Sim</button>
+        <button type="button" class="btn btn-primary" (click)="modalRef.hide()" >Não</button>
+      </div>
+</ng-template>
+
+<table class="container bs-docs-section table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Função</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <th scope="row">{{user.name}}</th>
+            <th scope="row">{{user.empresa}}</th>
+            <th scope="row">{{user.funcao}}</th>
+            <td><i style='cursor: pointer;' class="fa fa-pencil" aria-hidden="true" routerLink="/user-form" [queryParams] ="{id: user.id}"></i></td>
+            <td><i style='cursor: pointer;' class="fa fa-trash-o" aria-hidden="true" (click)="openModal(template,user)"></i></td>
+        </tr>                                                        
+    </tbody>    
+</table> 
+<button type="button" routerLink="/user-form" 
+    class="container btn btn-primary btn-lg btn-block">Adicionar</button>

@@ -1,0 +1,46 @@
+<div class="container bs-docs-section">
+
+  <div class="jumbotron">
+    <div style="display: block; text-align: center;">
+      <h1 class="display-3" >Bem Vindo à Oil&Gas</h1>
+      <p class="lead">Esse é o nosso modo de gerenciar embarcações.&nbsp; Se cadastre e comece a usar nossos serviços.</p>
+    </div>
+  </div>
+
+        <!--First slide-->
+        <div class="carousel-item active">
+
+          <div class="row">
+            <div style="cursor:pointer;" [routerLink]="['/estatisticas/']" class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="/assets/img/estatisticas.jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 style="display: block;text-align: center;" class="card-title">Estatísticas</h4>  
+                </div>
+              </div>
+            </div>
+
+            <div style="cursor:pointer;" [routerLink]="['/users/']" class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="/assets/img/funcionarios2.jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 style="display: block;text-align: center;" class="card-title">Usuários</h4>    
+                </div>
+              </div>
+            </div>
+
+            <div id='header_embacacaoes' style="cursor:pointer;" (click)='clickErro();' class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="/assets/img/plataforma.jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 style="display: block;text-align: center;" class="card-title">Embarcações</h4>  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/.First slide-->

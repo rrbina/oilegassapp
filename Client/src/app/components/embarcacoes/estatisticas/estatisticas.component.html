@@ -1,0 +1,36 @@
+<div class="container bs-docs-section">
+    <h2>Funcionários embarcados no período (por empresa)</h2>                          
+
+    <form [formGroup]="formulario">
+        <div class="form-group">
+            <div class="field clearfix date-range-start date-wrapper">
+                <div class="label">
+                <label for="datepickerEmbarque">Data Embarque:</label>
+                </div>
+                <div class="input">
+                <input type="date" name="experience-start" id="datepickerEmbarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+                style="display: block;width:100%;" formControlName="DataEmbarque" value="formulario.controls.DataEmbarque.value">
+                <small id="dataEmbarqueErrorField" [className]="!hasErrorDataEmbarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a data de embarque.</small>
+                </div>
+            
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="field clearfix date-range-start date-wrapper">
+            <div class="label">
+              <label for="datepickerDesembarque">Data Desembarque:</label>
+            </div>
+            <div class="input">
+              <input type="date" name="experience-end" id="datepickerDesembarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+              style="display: block;width:100%;" formControlName="DataDesembarque" value="formulario.controls.DataDesembarque.value">
+              <small id="dataDesembarqueErrorField" [className]="!hasErrorDataDesembarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">A data de desembarque deve ser preenchida e estar após a data de embarque.</small>
+            </div>            
+          </div>
+        </div>               
+        <button class="btn btn-primary" (click)="enviar();">Enviar</button>
+
+        <div id="canvas-holder" style="width:100%, background">
+            <canvas #canvasChart style='display: display-block;text-align: center;' id="doughnutChart"></canvas>
+        </div>
+    </form>
+    </div>

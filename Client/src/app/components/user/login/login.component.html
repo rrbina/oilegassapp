@@ -1,0 +1,30 @@
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>{{mensagem}}</p>
+        <button type="button" class="btn btn-primary" (click)="modalRef.hide()" >Ok</button>
+      </div>
+</ng-template>
+
+<div class="container login-container">
+    <div class="row">        
+        <div class="col-md-4"></div>
+        <div class="col-md-4 login-form-2">
+            <h3>Login</h3>
+            <form [formGroup]="formulario">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" formControlName="Email" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Senha" formControlName="Password" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Enviar" (click)="login(template);" />
+                </div>
+                <div class="form-group">
+                    <a routerLink="/user-form" style='cursor: pointer;' class="ForgetPwd" value="Login">Não tem cadastro?</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

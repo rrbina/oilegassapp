@@ -1,0 +1,65 @@
+<div class="container bs-docs-section">
+    <h2 *ngIf="create">Criar Embarcação</h2>
+    <h2 *ngIf="!create">Editar Embarcação</h2>                        
+
+    <form [formGroup]="formulario">
+        <div class="form-group">
+            <div class="field clearfix date-range-start date-wrapper">
+                <div class="label">
+                <label for="datepickerEmbarque">Data Embarque:</label>
+                </div>
+                <div class="input">
+                <input type="date" name="experience-start" id="datepickerEmbarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+                style="display: block;width:100%;" formControlName="DataEmbarque" value="formulario.controls.DataEmbarque.value">
+                <small id="dataEmbarqueErrorField" [className]="!hasErrorDataEmbarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a data de embarque.</small>
+                </div>
+            
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="field clearfix date-range-start date-wrapper">
+            <div class="label">
+              <label for="datepickerDesembarque">Data Desembarque:</label>
+            </div>
+            <div class="input">
+              <input type="date" name="experience-end" id="datepickerDesembarque" class="input-text form-control" placeholder="dd/mm/yyyy" 
+              style="display: block;width:100%;" formControlName="DataDesembarque" value="formulario.controls.DataDesembarque.value">
+              <small id="dataDesembarqueErrorField" [className]="!hasErrorDataDesembarque ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a data de desembarque com até 15 dias após a data de embarque.</small>
+            </div>            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="field clearfix date-range-start date-wrapper">
+              <div class="label">
+              <label for="datepickerInicioFolga">Início Folga:</label>
+              </div>
+              <div class="input">
+              <input type="date" name="experience-start" id="datepickerInicioFolga" class="input-text form-control" placeholder="dd/mm/yyyy" 
+              style="display: block;width:100%;" formControlName="DataInicioFolga" value="formulario.controls.DataInicioFolga.value">
+              <small id="dataInicioFolgaErrorField" [className]="!hasErrorDataInicioFolga ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha o início da folga.</small>
+              </div>
+          
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="field clearfix date-range-start date-wrapper">
+          <div class="label">
+            <label for="datepickerFimFolga">Fim Folga:</label>
+          </div>
+          <div class="input">
+            <input type="date" name="experience-end" id="datepickerFimFolga" class="input-text form-control" placeholder="dd/mm/yyyy" 
+            style="display: block;width:100%;" formControlName="DataFimFolga" value="formulario.controls.DataFimFolga.value">
+            <small id="dataFimFolgaErrorField" [className]="!hasErrorDataFimFolga ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha fim da folga com pleo menos 7 dias após a data de início da folga e até 15 dias após a mesma.</small>
+          </div>            
+        </div>
+      </div>
+        
+        <div class="form-group">
+            <label for="idUsuario">Id Usuário:</label>
+            <input type="text" class="form-control" id="idUsuario" placeholder="Entre com o id do usuário" formControlName="UserId" value="formulario.controls.UserId.value">
+            <small id="idUsuarioErrorFieldaNme" [className]="!hasErrorUserId ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha id de um usuário válido.</small>
+        </div>
+        <button class="btn btn-primary" (click)="salvar();">Salvar</button>
+    </form>
+    </div>

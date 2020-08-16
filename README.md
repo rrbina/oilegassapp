@@ -1,1 +1,1 @@
-# oilegassapp
+O backend está num servidor na azure, então é possível utilizar a pasta cliente. Obs: fiz alguns testes unitários no angular. infelizmente não deu tempo de fazer todos os testes que eu queria, então espero que isso seja levado em consideração.

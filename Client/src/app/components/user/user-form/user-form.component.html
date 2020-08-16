@@ -1,0 +1,37 @@
+<div class="container bs-docs-section">
+<h2 *ngIf="create">Criar Usuário</h2>
+<h2 *ngIf="!create">Editar Usuário</h2>
+<form [formGroup]="formulario">
+    <div class="form-group">
+        <label for="name">Nome:</label>
+        <input type="text" class="form-control" id="nome" placeholder="Entre com o nome" formControlName="Name" value="formulario.controls.Name.value">
+        <small id="nameErrorFieldaNme" [className]="!hasErrorName ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha o nome com até 27 caracteres.</small>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="text" class="form-control" id="email" placeholder="Entre com o e-mail" formControlName="Email" value="formulario.controls.Email.value">
+        <small id="nameErrorFieldEmail" [className]="!hasErrorEmail ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha o e-mail.</small>
+    </div>
+    <div class="form-group">
+        <label for="email">Empresa:</label>
+        <input type="text" class="form-control" id="empresa" placeholder="Entre com a empresa" formControlName="Empresa" value="formulario.controls.Empresa.value">
+        <small id="nameErrorFieldEmpresa" [className]="!hasErrorEmpresa ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a empresa.</small>
+    </div>
+    <div class="form-group">
+        <label for="funcao">Função:</label>
+        <input type="text" class="form-control" id="funcao" placeholder="Entre com a função" formControlName="Funcao" value="formulario.controls.Funcao.value">
+        <small id="nameErrorFieldFuncao" [className]="!hasErrorFuncao ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">Preencha a função.</small>
+    </div>
+    <div *ngIf="create" class="form-group">
+        <label for="name">Senha:</label>
+        <input type="password" class="form-control" id="password" placeholder="Entre com a senha" formControlName="Password">
+        <small id="nameErrorFieldPassword" [className]="!hasErrorPassword ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">O e-mail deve ter ao menos 4 letras.</small>
+    </div>
+    <div *ngIf="create" class="form-group">
+        <label for="name">Confirme a senha:</label>
+        <input type="password" class="form-control" id="password2" placeholder="Confirme a senha" formControlName="PasswordRetyped">
+        <small id="nameErrorFieldPassword2" [className]="!hasErrorPasswordRetyped ? 'form-text text-muted validation-error-hidden' : 'form-text text-muted validation-error-visible'">O e-mail não confere com o informando anteriormente.</small>
+    </div>
+    <button class="btn btn-primary" (click)="salvar();">Salvar</button>
+</form>
+</div>

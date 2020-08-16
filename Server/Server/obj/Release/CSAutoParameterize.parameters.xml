@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TrinksDbConfig-Web.config Connection String" description="TrinksDbConfig A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="metadata=res://*/DB.Model1.csdl|res://*/DB.Model1.ssdl|res://*/DB.Model1.msl;provider=System.Data.SQLite.EF6;provider connection string=&quot;base schema name=trinks;data source=C:\Rodrigo\dev\Trinks\Server\Server\DB\trinks.db&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Rodrigo\\dev\\oilegas\\Server\\Server\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrinksDbConfig']/@connectionString" />
+  </parameter>
+  <parameter name="TrinksConexion-Web.config Connection String" description="TrinksConexion A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="metadata=res://*/DB.Model1.csdl|res://*/DB.Model1.ssdl|res://*/DB.Model1.msl;provider=System.Data.SQLite.EF6;provider connection string=&quot;base schema name=trinks;data source=C:\Rodrigo\dev\Trinks\Server\Server\DB\trinks.db&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Rodrigo\\dev\\oilegas\\Server\\Server\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrinksConexion']/@connectionString" />
+  </parameter>
+  <parameter name="SQLiteConnexion-Web.config Connection String" description="SQLiteConnexion A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="metadata=res://*/DB.Model1.csdl|res://*/DB.Model1.ssdl|res://*/DB.Model1.msl;provider=System.Data.SQLite.EF6;provider connection string=&quot;base schema name=trinks;data source=C:\Rodrigo\dev\Trinks\Server\Server\DB\trinks.db&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Rodrigo\\dev\\oilegas\\Server\\Server\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SQLiteConnexion']/@connectionString" />
+  </parameter>
+</parameters>
